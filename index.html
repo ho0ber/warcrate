@@ -15,7 +15,7 @@
   
   <div>
     <label for="last">Enter last known crate drop time:</label><br>
-    <input type="datetime-local" id="last" onChange="nextTime()">
+    <input type="datetime-local" id="last" onChange="nextTime(true)">
     <button onClick="setNow()">Now!</button>
   </div>
   <h2>Next Crates</h2>
@@ -24,7 +24,8 @@
   <script src="warcrate.js"></script>
   <script>
     window.addEventListener("load", function() {
-        setNow();
+        // setNow();
+        loadCookie();
         nextTime();
         setInterval(nextTime, 1000);
     });
