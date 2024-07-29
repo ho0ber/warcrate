@@ -14,7 +14,7 @@ function nextTime(updated) {
   setCookie("last",last_element.value,30)
   var next_text = "";
   var current = false;
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 32; i++) {
     next = next.add(45, 'minutes');
     if (next > moment() && !current ) {
       current = true
