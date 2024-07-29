@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>War Crate Timers</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+
+<body>
+  <script>
+  </script>
+  <h1>War Crate Timers</h1>
+  
+  <div>
+    <label for="last">Enter last known crate drop time:</label><br>
+    <input type="datetime-local" id="last" onChange="nextTime()">
+    <button onClick="setNow()">Now!</button>
+  </div>
+  <h2>Next Crates</h2>
+  <pre id="next"></pre>
+  <script src="moment.min.js"></script>
+  <script src="warcrate.js"></script>
+  <script>
+    window.addEventListener("load", function() {
+        setNow();
+        nextTime();
+        setInterval(nextTime, 1000);
+    });
+  </script>
+</body>
+
+</html>
