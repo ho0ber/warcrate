@@ -1,8 +1,26 @@
+document.alerted = {}
+
 function loadCookie() {
   last_element = document.getElementById("last");
   var cook = readCookie("last");
   console.log("Loaded cookie: "+ cook)
   last_element.value = cook;
+}
+
+function playAlert(next) {
+  if ((next - moment()) > moment.duration({'minute': 3})) {
+    // console.log("Skipping alert because not within time window: "+next+" "+moment());
+    return;
+  }
+  if (document.alerted[String(next)]) {
+    // console.log("Skipping alert because "+next+" has already been alerted");
+    return;
+  }
+
+  document.alerted[String(next)] = true
+  var audio = new Audio('ding.mp3');
+  audio.play();
+
 }
 
 function nextTime(updated) {
@@ -19,13 +37,13 @@ function nextTime(updated) {
     if (next > moment() && !current ) {
       current = true
       next_text += "➤ "
+      playAlert(next);
     } else {
       next_text += "  "
     }
     next_text += next.format("hh:mm A") + " (" + next.fromNow() + ')\n';
   }
   next_element.innerHTML = next_text
-  // console.log(typeof(v))
 }
 
 function setNow() {
