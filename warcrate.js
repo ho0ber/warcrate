@@ -1,4 +1,4 @@
-document.alerted = {}
+  document.alerted = {}
 
 function loadCookie() {
   last_element = document.getElementById("last");
@@ -18,7 +18,7 @@ function playAlert(next) {
   }
 
   document.alerted[String(next)] = true
-  var audio = new Audio('ding.mp3');
+  var audio = new Audio('https://ho0ber.github.io/warcrate/ding.mp3');
   audio.play();
 
 }
