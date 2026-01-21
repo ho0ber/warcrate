@@ -33,7 +33,7 @@ function nextTime(updated) {
   var next_text = "";
   var current = false;
   for (var i = 0; i < 32; i++) {
-    next = next.add(45, 'minutes');
+    next = next.add(18, 'minutes');
     if (next > moment() && !current ) {
       current = true
       next_text += "➤ "
